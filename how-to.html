@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shimmr Tips</title>
+    <style>
+        body {
+            background-color: #282828;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin-top: 20px;
+        }
+        p {
+            color: #6F6F6F;
+            margin-bottom: 15px;
+        }
+        .secondary-text {
+            color: #6F6F6F;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">To get the most out of Shimmr and enhance your meditation, focus, relaxation, or sleep experience, follow these tips:</h1>
+
+    <h2 id="tip1-title">1. Use Headphones for Best Results</h2>
+    <p id="tip1-text">Using headphones will provide the best results due to the binaural sounds utilized in Shimmr. Research shows that listening to binaural beats through headphones can significantly enhance meditation, focus, and relaxation. The isolated sound delivered directly to your ears helps in achieving the desired brain wave states more effectively.</p>
+
+    <h2 id="tip2-title">2. Set a Timer for Sleep or Background Ambient Sounds</h2>
+    <p id="tip2-text">If you're using Shimmr to aid sleep or as background ambient noise, you can set a timer for the sounds to play for a specific duration. Alternatively, you can turn off the timer for continuous playback throughout the night or your work session. This flexibility ensures that Shimmr fits seamlessly into your routine.</p>
+
+    <h2 id="tip3-title">3. Choose the Correct Tone for Your Objectives</h2>
+    <p id="tip3-text">Selecting the appropriate tone for your specific goals is crucial. Shimmr offers a variety of tones designed to help you relax, focus, meditate, or sleep. For instance, calming ambient sounds can help reduce stress and anxiety, while specific brain wave tones can improve focus and cognitive performance. Experiment with different sounds to find what works best for you.</p>
+
+    <h2 id="tip4-title">4. Breathwork</h2>
+    <p id="tip4-text">Before using breathing exercises, be sure to read the instructions to understand how to practice them effectively. You may also choose background sounds, transition sounds for when you are prompted to perform an action, and whether you would like haptic feedback. Each breathing exercise has different objectives, so pick the one that suits you best.</p>
+
+    <p id="conclusion">By following these tips, you can maximize the benefits of Shimmr and create the perfect auditory environment for your needs.</p>
+
+    <script>
+        // Load language based on URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang') || 'en'; // Default to English
+
+        // Fetch JSON data
+        fetch('text.json')
+            .then(response => response.json())
+            .then(data => {
+                const content = data[lang];
+                document.getElementById('title').innerText = content.title;
+                document.getElementById('tip1-title').innerText = content.tip1.title;
+                document.getElementById('tip1-text').innerText = content.tip1.text;
+                document.getElementById('tip2-title').innerText = content.tip2.title;
+                document.getElementById('tip2-text').innerText = content.tip2.text;
+                document.getElementById('tip3-title').innerText = content.tip3.title;
+                document.getElementById('tip3-text').innerText = content.tip3.text;
+                document.getElementById('tip4-title').innerText = content.tip4.title;
+                document.getElementById('tip4-text').innerText = content.tip4.text;
+                document.getElementById('conclusion').innerText = content.conclusion;
+            })
+            .catch(error => console.error('Error loading language:', error));
+    </script>
+</body>
+</html>
